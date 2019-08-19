@@ -60,22 +60,23 @@ namespace Conposifit.Infrastructure.Repositories
                 await exerciseDao.Add(exercise);
         }
 
-        private string GetMesoSqlQuery() => "SELECT m.*,e.*,c.* FROM Mesocycles m LEFT JOIN Exercises e ON e.mesoId = m.Id LEFT JOIN Cardio c On c.MesoId = m.Id";
+        private string GetMesoSqlQuery() => "SELECT DISTINCT m.*,e.*,c.* FROM Mesocycles m LEFT JOIN Exercises e ON e.mesoId = m.Id LEFT JOIN Cardio c On c.MesoId = m.Id";
 
         private async Task<IEnumerable<Meso>> Build(string sql, object parameter = null)
         {
             IDictionary<int, Meso> mesos = new Dictionary<int, Meso>();
-            return await _dapper.SelectAsync<Meso, Exercise, Cardio, Meso>(sql, (mesoEntity, exercise, cardio) =>
-            {
-                Meso meso;
-                if (!mesos.TryGetValue(mesoEntity.Id, out meso))
-                    mesos.Add(mesoEntity.Id, meso = mesoEntity);
-                
-                meso.AddExercise(exercise);
-                meso.AddCardio(cardio);
+            await _dapper.SelectAsync<Meso, Exercise, Cardio, Meso>(sql, (mesoEntity, exercise, cardio) =>
+             {
+                 Meso meso;
+                 if (!mesos.TryGetValue(mesoEntity.Id, out meso))
+                     mesos.Add(mesoEntity.Id, meso = mesoEntity);
 
-                return meso;
-            }, parameter, "Id");
+                 meso.AddExercise(exercise);
+                 meso.AddCardio(cardio);
+
+                 return meso;
+             }, parameter, "Id");
+            return mesos.Values;
         }
     }
 }
