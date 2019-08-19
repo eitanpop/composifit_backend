@@ -1,0 +1,12 @@
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\bin\Debug\netcoreapp2.1\Composifit.Domain.deps.json
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\bin\Debug\netcoreapp2.1\Composifit.Domain.dll
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\bin\Debug\netcoreapp2.1\Composifit.Domain.pdb
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\bin\Debug\netcoreapp2.1\Composifit.Core.dll
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\bin\Debug\netcoreapp2.1\Composifit.Core.pdb
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\obj\Debug\netcoreapp2.1\Composifit.Domain.csprojAssemblyReference.cache
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\obj\Debug\netcoreapp2.1\Composifit.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\obj\Debug\netcoreapp2.1\Composifit.Domain.AssemblyInfoInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\obj\Debug\netcoreapp2.1\Composifit.Domain.AssemblyInfo.cs
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\obj\Debug\netcoreapp2.1\Composifit.Domain.csproj.CopyComplete
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\obj\Debug\netcoreapp2.1\Composifit.Domain.dll
+C:\Projects\composifit\BackEnd\Composifit\ClassLibrary1\obj\Debug\netcoreapp2.1\Composifit.Domain.pdb

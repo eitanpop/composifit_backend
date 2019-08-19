@@ -1,0 +1,16 @@
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Conposifit.Infrastructure.deps.json
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Conposifit.Infrastructure.runtimeconfig.json
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Conposifit.Infrastructure.runtimeconfig.dev.json
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Conposifit.Infrastructure.dll
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Conposifit.Infrastructure.pdb
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Composifit.Core.dll
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Composifit.Domain.dll
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Composifit.Domain.pdb
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\bin\Release\netcoreapp2.1\Composifit.Core.pdb
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\obj\Release\netcoreapp2.1\Conposifit.Infrastructure.csprojAssemblyReference.cache
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\obj\Release\netcoreapp2.1\Conposifit.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\obj\Release\netcoreapp2.1\Conposifit.Infrastructure.AssemblyInfoInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\obj\Release\netcoreapp2.1\Conposifit.Infrastructure.AssemblyInfo.cs
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\obj\Release\netcoreapp2.1\Conposifit.Infrastructure.csproj.CopyComplete
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\obj\Release\netcoreapp2.1\Conposifit.Infrastructure.dll
+C:\Projects\composifit\BackEnd\Composifit\Conposifit.Infrastructure\obj\Release\netcoreapp2.1\Conposifit.Infrastructure.pdb

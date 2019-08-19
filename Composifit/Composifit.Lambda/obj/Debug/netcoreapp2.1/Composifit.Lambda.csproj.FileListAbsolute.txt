@@ -1,0 +1,11 @@
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.1\Composifit.Lambda.deps.json
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.1\Composifit.Lambda.runtimeconfig.json
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.1\Composifit.Lambda.runtimeconfig.dev.json
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.1\Composifit.Lambda.dll
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.1\Composifit.Lambda.pdb
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.1\Composifit.Lambda.csproj.CoreCompileInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.1\Composifit.Lambda.AssemblyInfoInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.1\Composifit.Lambda.AssemblyInfo.cs
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.1\Composifit.Lambda.dll
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.1\Composifit.Lambda.pdb
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.1\Composifit.Lambda.csprojAssemblyReference.cache

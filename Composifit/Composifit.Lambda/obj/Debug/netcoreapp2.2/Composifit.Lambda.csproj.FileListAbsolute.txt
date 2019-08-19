@@ -1,0 +1,10 @@
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.2\Composifit.Lambda.deps.json
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.2\Composifit.Lambda.runtimeconfig.json
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.2\Composifit.Lambda.runtimeconfig.dev.json
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.2\Composifit.Lambda.dll
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\bin\Debug\netcoreapp2.2\Composifit.Lambda.pdb
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.2\Composifit.Lambda.csproj.CoreCompileInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.2\Composifit.Lambda.AssemblyInfoInputs.cache
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.2\Composifit.Lambda.AssemblyInfo.cs
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.2\Composifit.Lambda.dll
+C:\Projects\composifit\BackEnd\Composifit\Composifit.Lambda\obj\Debug\netcoreapp2.2\Composifit.Lambda.pdb
