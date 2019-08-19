@@ -1,8 +1,0 @@
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\bin\Debug\netcoreapp2.2\Composifit.Core.deps.json
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\bin\Debug\netcoreapp2.2\Composifit.Core.dll
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\bin\Debug\netcoreapp2.2\Composifit.Core.pdb
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\obj\Debug\netcoreapp2.2\Composifit.Core.csproj.CoreCompileInputs.cache
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\obj\Debug\netcoreapp2.2\Composifit.Core.AssemblyInfoInputs.cache
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\obj\Debug\netcoreapp2.2\Composifit.Core.AssemblyInfo.cs
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\obj\Debug\netcoreapp2.2\Composifit.Core.dll
-C:\Projects\composifit\BackEnd\Composifit\Composifit.Core\obj\Debug\netcoreapp2.2\Composifit.Core.pdb
