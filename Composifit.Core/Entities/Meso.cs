@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Composifit.Core.Entities;
 using Dapper.Contrib.Extensions;
+using System.Linq;
 
 namespace Composifit.Core.Entities
 
@@ -18,7 +19,7 @@ namespace Composifit.Core.Entities
         private readonly IList<Exercise> _exercises = new List<Exercise>();
         public void AddExercise(Exercise exercise)
         {
-            if (exercise != null)
+            if (exercise != null && !_exercises.Any(x=>x.Id == exercise.Id))
                 _exercises.Add(exercise);
         }
 
@@ -27,7 +28,7 @@ namespace Composifit.Core.Entities
         private readonly IList<Cardio> _cardio = new List<Cardio>();
         public void AddCardio(Cardio cardio)
         {
-            if (cardio != null)
+            if (cardio != null && !_cardio.Any(x => x.Id == cardio.Id))
                 _cardio.Add(cardio);
         }
     }

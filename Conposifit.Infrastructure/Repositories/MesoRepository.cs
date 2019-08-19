@@ -45,22 +45,19 @@ namespace Conposifit.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        private static object _sync = new object();
         public async Task Update(Meso entity)
         {
             var exerciseDao = new ExerciseDao(_dapper);
             var cardioDao = new CardioDao(_dapper);
 
             await exerciseDao.DeleteForMeso(entity.Id);
-             await cardioDao.DeleteForMeso(entity.Id);
-            foreach(var cardio in entity.Cardios)            
+            await cardioDao.DeleteForMeso(entity.Id);
+
+            foreach (var cardio in entity.Cardios)
                 await cardioDao.Add(cardio);
 
             foreach (var exercise in entity.Exercises)
                 await exerciseDao.Add(exercise);
-
-            // entity.Cardios.ToList().ForEach(async cardio => await cardioDao.Add(cardio));
-            //  entity.Exercises.ToList().ForEach(async exercise => await exerciseDao.Add(exercise));           
         }
 
         private string GetMesoSqlQuery() => "SELECT m.*,e.*,c.* FROM Mesocycles m LEFT JOIN Exercises e ON e.mesoId = m.Id LEFT JOIN Cardio c On c.MesoId = m.Id";
@@ -73,6 +70,7 @@ namespace Conposifit.Infrastructure.Repositories
                 Meso meso;
                 if (!mesos.TryGetValue(mesoEntity.Id, out meso))
                     mesos.Add(mesoEntity.Id, meso = mesoEntity);
+                
                 meso.AddExercise(exercise);
                 meso.AddCardio(cardio);
 

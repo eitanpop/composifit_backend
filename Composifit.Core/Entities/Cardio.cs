@@ -1,15 +1,18 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Composifit.Core.Entities
 {
+    [Table("Cardio")]
     public class Cardio : EntityWithName
     {
         public double TimeInMinutes { get; set; }
 
         public int IntensityId => (int)Intensity;
 
+        [Write(false)]
         public Intensity Intensity { get; set; }
 
         public DateTime? Date { get; set; }

@@ -67,13 +67,12 @@ namespace Composifit.Controllers
                 Date = model.Date,
                 MesoId = model.MesoId,
                 Name = model.Name,
-                TimeInMinutes = model.TimeInMinutes,
-                Intensity = (Intensity)Enum.Parse(typeof(Intensity), model.Intensity)
+                TimeInMinutes = model.TimeInMinutes
             };
             meso.AddCardio(cardio);
             await _service.Update(meso);
 
-            return Ok(meso.Cardios?.Count() );
+            return Ok(meso.Cardios?.Count());
         }
 
 
@@ -86,6 +85,17 @@ namespace Composifit.Controllers
                 return new NotFoundResult();
             return new OkObjectResult(entity);
         }
+
+        [HttpGet]
+        [Route("/mesos")]
+        public async Task<ActionResult<IEnumerable<MesoGetModel>>> GetAllMesos()
+        {
+            var entities = await _service.FindAll();
+            if (entities == null)
+                return new NotFoundResult();
+            return new OkObjectResult(entities);
+        }
+
 
 
         [HttpGet]
