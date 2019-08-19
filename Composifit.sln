@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit", "Composifit\Composifit.csproj", "{1062570C-579D-4677-8B25-593349BE9F05}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit.Domain", "ClassLibrary1\Composifit.Domain.csproj", "{FC538B44-71F6-4D71-8740-5829B30FC09A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit.Core", "Composifit.Core\Composifit.Core.csproj", "{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composifit.Core", "Composifit.Core\Composifit.Core.csproj", "{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conposifit.Infrastructure", "Conposifit.Infrastructure\Conposifit.Infrastructure.csproj", "{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conposifit.Infrastructure", "Conposifit.Infrastructure\Conposifit.Infrastructure.csproj", "{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit.Domain", "Composifit.Domain\Composifit.Domain.csproj", "{89885060-84AA-4DD0-BA3E-3C62F0BE768B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{1062570C-579D-4677-8B25-593349BE9F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1062570C-579D-4677-8B25-593349BE9F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1062570C-579D-4677-8B25-593349BE9F05}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC538B44-71F6-4D71-8740-5829B30FC09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC538B44-71F6-4D71-8740-5829B30FC09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC538B44-71F6-4D71-8740-5829B30FC09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC538B44-71F6-4D71-8740-5829B30FC09A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89885060-84AA-4DD0-BA3E-3C62F0BE768B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89885060-84AA-4DD0-BA3E-3C62F0BE768B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89885060-84AA-4DD0-BA3E-3C62F0BE768B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89885060-84AA-4DD0-BA3E-3C62F0BE768B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

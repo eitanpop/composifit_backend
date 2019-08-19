@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj": {}
+    "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj": {
+    "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj",
+        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj",
         "projectName": "Composifit.Core",
-        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj",
+        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj",
         "packagesPath": "C:\\Users\\oysta\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\obj\\",
+        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -55,20 +55,10 @@
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
           "warn": true
-        }
-      },
-      "runtimes": {
-        "rhel.7.2-x64": {
-          "#import": []
         }
       }
     }

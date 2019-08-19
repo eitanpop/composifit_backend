@@ -1,89 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\composifit\\BackEnd\\Composifit\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj": {}
+    "C:\\Projects\\composifit\\BackEnd\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\composifit\\BackEnd\\Composifit\\ClassLibrary1\\Composifit.Domain.csproj": {
+    "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Composifit\\ClassLibrary1\\Composifit.Domain.csproj",
-        "projectName": "Composifit.Domain",
-        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\ClassLibrary1\\Composifit.Domain.csproj",
-        "packagesPath": "C:\\Users\\oysta\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\ClassLibrary1\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\oysta\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp2.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp2.1": {
-            "projectReferences": {
-              "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj": {
-                "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp2.1": {
-          "dependencies": {
-            "Dapper": {
-              "target": "Package",
-              "version": "[1.60.6, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      },
-      "runtimes": {
-        "rhel.7.2-x64": {
-          "#import": []
-        }
-      }
-    },
-    "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj",
+        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj",
         "projectName": "Composifit.Core",
-        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj",
+        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj",
         "packagesPath": "C:\\Users\\oysta\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\obj\\",
+        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -127,31 +55,21 @@
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
           "warn": true
         }
-      },
-      "runtimes": {
-        "rhel.7.2-x64": {
-          "#import": []
-        }
       }
     },
-    "C:\\Projects\\composifit\\BackEnd\\Composifit\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj": {
+    "C:\\Projects\\composifit\\BackEnd\\Composifit.Domain\\Composifit.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj",
-        "projectName": "Conposifit.Infrastructure",
-        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Composifit.Domain\\Composifit.Domain.csproj",
+        "projectName": "Composifit.Domain",
+        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Domain\\Composifit.Domain.csproj",
         "packagesPath": "C:\\Users\\oysta\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Conposifit.Infrastructure\\obj\\",
+        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -172,11 +90,73 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Projects\\composifit\\BackEnd\\Composifit\\ClassLibrary1\\Composifit.Domain.csproj": {
-                "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\ClassLibrary1\\Composifit.Domain.csproj"
+              "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj": {
+                "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[1.60.6, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Projects\\composifit\\BackEnd\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\composifit\\BackEnd\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj",
+        "projectName": "Conposifit.Infrastructure",
+        "projectPath": "C:\\Projects\\composifit\\BackEnd\\Conposifit.Infrastructure\\Conposifit.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\oysta\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\composifit\\BackEnd\\Conposifit.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\oysta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj": {
+                "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Core\\Composifit.Core.csproj"
               },
-              "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj": {
-                "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit\\Composifit.Core\\Composifit.Core.csproj"
+              "C:\\Projects\\composifit\\BackEnd\\Composifit.Domain\\Composifit.Domain.csproj": {
+                "projectPath": "C:\\Projects\\composifit\\BackEnd\\Composifit.Domain\\Composifit.Domain.csproj"
               }
             }
           }
@@ -202,20 +182,10 @@
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
           "warn": true
-        }
-      },
-      "runtimes": {
-        "rhel.7.2-x64": {
-          "#import": []
         }
       }
     }

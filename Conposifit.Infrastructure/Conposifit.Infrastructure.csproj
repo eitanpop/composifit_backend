@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Composifit.Domain.csproj" />
+    <ProjectReference Include="..\Composifit.Domain\Composifit.Domain.csproj" />
     <ProjectReference Include="..\Composifit.Core\Composifit.Core.csproj" />
   </ItemGroup>
 
