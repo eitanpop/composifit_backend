@@ -47,6 +47,12 @@ namespace Conposifit.Infrastructure.Repositories
 
         public async Task Update(Meso entity)
         {
+            await _dapper.Update(entity);
+            await CreateOrUpdateExercises(entity);
+        }
+
+        private async Task CreateOrUpdateExercises(Meso entity)
+        {
             var exerciseDao = new ExerciseDao(_dapper);
             var cardioDao = new CardioDao(_dapper);
 

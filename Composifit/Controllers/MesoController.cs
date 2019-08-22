@@ -50,11 +50,20 @@ namespace Composifit.Controllers
 
             meso.AddExercise(exercise);
             await _service.Update(meso);
-            var updatedMeso = await  _service.FindById(model.MesoId);
+            var updatedMeso = await _service.FindById(model.MesoId);
             Console.WriteLine(JsonConvert.SerializeObject(updatedMeso));
 
             return Ok(updatedMeso.Exercises?.Count());
         }
+
+        [HttpPost]
+        [Route("/[controller]/{mesoId}/copy/{dayFrom}/{dayTo}")]
+        public async Task<ActionResult> Post(int mesoId, DateTime dayFrom, DateTime dayTo)
+        {
+            await _service.CloneExercisesAndCardioToDate(mesoId, dayFrom, dayTo);
+            return Ok();
+        }
+
 
         [HttpPost]
         [Route("/[controller]/cardio")]

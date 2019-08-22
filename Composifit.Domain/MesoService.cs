@@ -43,6 +43,26 @@ namespace Composifit.Domain
             var cardios = meso.Cardios?.Where(x => x.Date.Value.Date == date.Date);
             return (meso, exercises, cardios);
         }
+
+
+        public async Task CloneExercisesAndCardioToDate(int mesoId, DateTime dayFrom, DateTime dayTo)
+        {
+            var meso = await FindById(mesoId);
+            var cardioAndExercises = await GetExercisesAndCardio(mesoId, dayFrom);
+            meso.Cardios.ToList().ForEach(cardio =>
+            {
+                cardio.Date = dayTo;
+                meso.AddCardio(cardio);
+            });
+
+            meso.Exercises.ToList().ForEach(exercise =>
+            {
+                exercise.Date = dayTo;
+                meso.AddExercise(exercise);
+            });
+
+            await Update(meso);
+        }
     }
 
 }
