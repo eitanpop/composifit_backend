@@ -5,16 +5,18 @@
     <AWSProjectType>Lambda</AWSProjectType>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Dapper" Version="1.60.6" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
     <PackageReference Include="AWSSDK.S3" Version="3.3.31.19" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.6" />
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="3.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Composifit.Domain\Composifit.Domain.csproj" />
     <ProjectReference Include="..\Composifit.Core\Composifit.Core.csproj" />
-    <ProjectReference Include="..\Conposifit.Infrastructure\Conposifit.Infrastructure.csproj" />
+    <ProjectReference Include="..\Conposifit.Infrastructure\Composifit.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

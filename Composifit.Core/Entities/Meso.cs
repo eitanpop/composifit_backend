@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Composifit.Core.Entities;
-using Dapper.Contrib.Extensions;
 using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Composifit.Core.Entities
 
@@ -11,25 +9,27 @@ namespace Composifit.Core.Entities
     [Table("Mesocycles")]
     public class Meso : EntityWithName
     {
+        public Meso()
+        {
+            Cardios = new HashSet<Cardio>();
+            Exercises = new HashSet<Exercise>();
+        }
         public DateTime BeginDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        [Write(false)]
-        public IList<Exercise> Exercises => _exercises;
-        private readonly IList<Exercise> _exercises = new List<Exercise>();
+        
+        public ICollection<Exercise> Exercises  {get;  set;}
         public void AddExercise(Exercise exercise)
         {
-            if (exercise != null && !_exercises.Any(x=>x.Id == exercise.Id))
-                _exercises.Add(exercise);
+            if (exercise != null && !Exercises.Any(x=>x.Id == exercise.Id))
+                Exercises.Add(exercise);
         }
 
-        [Write(false)]
-        public IList<Cardio> Cardios => _cardio;
-        private readonly IList<Cardio> _cardio = new List<Cardio>();
+        public ICollection<Cardio> Cardios { get; set; }
         public void AddCardio(Cardio cardio)
         {
-            if (cardio != null && !_cardio.Any(x => x.Id == cardio.Id))
-                _cardio.Add(cardio);
+            if (cardio != null && !Cardios.Any(x => x.Id == cardio.Id))
+                Cardios.Add(cardio);
         }
     }
 }

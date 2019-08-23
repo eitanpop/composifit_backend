@@ -1,4 +1,5 @@
-﻿using Composifit.Core;
+﻿using AutoMapper;
+using Composifit.Core;
 using Composifit.Core.Entities;
 using Composifit.Domain.ServiceContracts;
 using Composifit.Models;
@@ -17,9 +18,11 @@ namespace Composifit.Controllers
     public class MesoController : Controller
     {
         private IMesoService _service;
-        public MesoController(IMesoService service)
+        private IMapper _mapper;
+        public MesoController(IMesoService service, IMapper mapper)
         {
             _service = service;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -30,33 +33,6 @@ namespace Composifit.Controllers
         }
 
         [HttpPost]
-        [Route("/[controller]/exercise")]
-        public async Task<ActionResult> Post(ExerciseCreateModel model)
-        {
-            Console.WriteLine(JsonConvert.SerializeObject(model));
-            var meso = await _service.FindById(model.MesoId);
-
-            Console.WriteLine(JsonConvert.SerializeObject(meso));
-
-            var exercise = new Exercise
-            {
-                Date = model.Date,
-                MesoId = model.MesoId,
-                Name = model.Name,
-                Reps = model.Reps,
-                Sets = model.Sets,
-                Weight = double.Parse(model.Weight)
-            };
-
-            meso.AddExercise(exercise);
-            await _service.Update(meso);
-            var updatedMeso = await _service.FindById(model.MesoId);
-            Console.WriteLine(JsonConvert.SerializeObject(updatedMeso));
-
-            return Ok(updatedMeso.Exercises?.Count());
-        }
-
-        [HttpPost]
         [Route("/[controller]/{mesoId}/copy/{dayFrom}/{dayTo}")]
         public async Task<ActionResult> Post(int mesoId, DateTime dayFrom, DateTime dayTo)
         {
@@ -64,6 +40,18 @@ namespace Composifit.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        [Route("/[controller]/exercise")]
+        public async Task<ActionResult> Post(ExerciseCreateModel model)
+        {
+            Console.WriteLine(JsonConvert.SerializeObject(model));
+            var meso = await _service.FindById(model.MesoId);
+            Console.WriteLine(JsonConvert.SerializeObject(meso));
+            var exercise = model.Id > 0 ? meso.Exercises.First(x => x.Id == model.Id) : new Exercise();
+            meso.AddExercise(_mapper.Map(model, exercise));
+            await _service.Update(meso);
+            return Ok(meso.Exercises?.Count());
+        }
 
         [HttpPost]
         [Route("/[controller]/cardio")]
@@ -71,16 +59,9 @@ namespace Composifit.Controllers
         {
             Console.WriteLine(JsonConvert.SerializeObject(model));
             var meso = await _service.FindById(model.MesoId);
-            var cardio = new Cardio
-            {
-                Date = model.Date,
-                MesoId = model.MesoId,
-                Name = model.Name,
-                TimeInMinutes = model.TimeInMinutes
-            };
-            meso.AddCardio(cardio);
+            var cardio = model.Id > 0 ? meso.Cardios.First(x => x.Id == model.Id) : new Cardio();          
+            meso.AddCardio(_mapper.Map(model, cardio));
             await _service.Update(meso);
-
             return Ok(meso.Cardios?.Count());
         }
 
@@ -108,8 +89,8 @@ namespace Composifit.Controllers
 
 
         [HttpGet]
-        [Route("/[controller]/{id:int}/{date:DateTime}")]
-        public async Task<ActionResult<DayGetModel>> Get(int id, DateTime date)
+        [Route("/[controller]/{id:int}/date/{date:DateTime?}")]
+        public async Task<ActionResult<DayGetModel>> Get(int id, DateTime? date = null)
         {
             var meso = await _service.GetExercisesAndCardio(id, date);
             return new DayGetModel { Exercises = meso.Exercises, Cardios = meso.Cardios, Meso = GetSimpleModelFromMeso(meso.Meso) };

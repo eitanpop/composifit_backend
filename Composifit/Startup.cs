@@ -8,8 +8,7 @@ using Composifit.Domain.Repositories;
 using Composifit.Domain.RepositoryContracts;
 using Composifit.Domain.ServiceContracts;
 using Composifit.Infrastructure.Repositories;
-using Conposifit.Infrastructure;
-using Conposifit.Infrastructure.Repositories;
+using Composifit.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace Composifit
 {
@@ -33,13 +33,9 @@ namespace Composifit
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddAutoMapper(typeof(AutoMaps));
             services.AddDbContext<ComposifitDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            SqlConnectionStringFactory connectionStringFactory = Configuration.GetSection("ConnectionStrings").Get<SqlConnectionStringFactory>();
-            services.AddSingleton(connectionStringFactory);
-            services.AddTransient<IValueRepository, ValueRepository>();
-            services.AddTransient<IMesoRepository, MesoRepository>();
             services.AddTransient<IMesoService, MesoService>();
 
         }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Linq;
 using Composifit.Domain.RepositoryContracts;
 using Composifit.Core.Entities;
-using Conposifit.Infrastructure.DAOs;
+using Composifit.Infrastructure.DAOs;
 
-namespace Conposifit.Infrastructure.Repositories
+namespace Composifit.Infrastructure.Repositories
 {
     public class MesoRepository : IMesoRepository
     {

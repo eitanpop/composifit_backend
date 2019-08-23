@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Dapper;
 using Dapper.Contrib.Extensions;
 
-namespace Conposifit.Infrastructure
+namespace Composifit.Infrastructure
 {
     public class DapperUtil
     {

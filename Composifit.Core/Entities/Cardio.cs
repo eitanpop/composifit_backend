@@ -8,12 +8,9 @@ namespace Composifit.Core.Entities
     [Table("Cardio")]
     public class Cardio : EntityWithName
     {
-        public double TimeInMinutes { get; set; }
+        public decimal TimeInMinutes { get; set; }
 
-        public int IntensityId => (int)Intensity;
-
-        [Write(false)]
-        public Intensity Intensity { get; set; }
+        public int IntensityId { get; set; }       
 
         public DateTime? Date { get; set; }
 
