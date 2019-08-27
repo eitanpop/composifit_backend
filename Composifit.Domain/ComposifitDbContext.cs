@@ -15,6 +15,10 @@ namespace Composifit.Domain
 
         public DbSet<Cardio> Cardio { get; set; }
 
+        public DbSet<Set> Sets { get; set; }
+
+        public DbSet<UserSet> UserSets { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            

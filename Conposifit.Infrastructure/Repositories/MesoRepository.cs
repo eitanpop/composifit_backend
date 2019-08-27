@@ -77,8 +77,7 @@ namespace Composifit.Infrastructure.Repositories
                  if (!mesos.TryGetValue(mesoEntity.Id, out meso))
                      mesos.Add(mesoEntity.Id, meso = mesoEntity);
 
-                 meso.AddExercise(exercise);
-                 meso.AddCardio(cardio);
+           
 
                  return meso;
              }, parameter, "Id");

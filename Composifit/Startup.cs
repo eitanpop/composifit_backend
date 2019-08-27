@@ -37,6 +37,7 @@ namespace Composifit
             services.AddDbContext<ComposifitDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IMesoService, MesoService>();
+            services.AddTransient<ITrackService, TrackService>();
 
         }
 

@@ -32,14 +32,7 @@ namespace Composifit.Controllers
             return await _service.Create(new Meso { BeginDate = model.BeginDate, EndDate = model.EndDate, Name = model.Name });
         }
 
-        [HttpPost]
-        [Route("/[controller]/{mesoId}/copy/{dayFrom}/{dayTo}")]
-        public async Task<ActionResult> Post(int mesoId, DateTime dayFrom, DateTime dayTo)
-        {
-            await _service.CloneExercisesAndCardioToDate(mesoId, dayFrom, dayTo);
-            return Ok();
-        }
-
+        
         [HttpPost]
         [Route("/[controller]/exercise")]
         public async Task<ActionResult> Post(ExerciseCreateModel model)
@@ -68,22 +61,22 @@ namespace Composifit.Controllers
 
         [HttpGet]
         [Route("/[controller]/{id:int}")]
-        public async Task<ActionResult<IEnumerable<MesoGetModel>>> Get(int id)
+        public async Task<ActionResult<dynamic>> Get(int id)
         {
             var entity = await _service.FindById(id);
             if (entity == null)
                 return new NotFoundResult();
-            return new OkObjectResult(entity);
+            return Ok(entity);
         }
 
         [HttpGet]
         [Route("/mesos")]
-        public async Task<ActionResult<IEnumerable<MesoGetModel>>> GetAllMesos()
+        public async Task<ActionResult<IEnumerable<dynamic>>> GetAllMesos()
         {
             var entities = await _service.FindAll();
             if (entities == null)
                 return new NotFoundResult();
-            return new OkObjectResult(entities);
+            return  Ok(entities);
         }
 
 

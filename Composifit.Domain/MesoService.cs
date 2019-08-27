@@ -15,7 +15,7 @@ namespace Composifit.Domain
     {
         private ComposifitDbContext _context;
         public MesoService(ComposifitDbContext context)
-        {          
+        {
             _context = context;
         }
         public async Task<int> Create(Meso meso)
@@ -29,6 +29,8 @@ namespace Composifit.Domain
         {
             return await _context.Mesocycles
                  .Include(x => x.Exercises)
+                 .ThenInclude(x => x.Sets)
+                 .ThenInclude(x => x.UserSet)
                  .Include(x => x.Cardios)
                  .ToListAsync();
         }
@@ -38,6 +40,8 @@ namespace Composifit.Domain
             return await _context.Mesocycles
                  .Where(meso => meso.Id == id)
                  .Include(x => x.Exercises)
+                 .ThenInclude(x => x.Sets)
+                 .ThenInclude(x => x.UserSet)
                  .Include(x => x.Cardios)
                  .FirstOrDefaultAsync();
         }
@@ -51,47 +55,10 @@ namespace Composifit.Domain
         public async Task<(Meso Meso, IEnumerable<Exercise> Exercises, IEnumerable<Cardio> Cardios)> GetExercisesAndCardio(int mesoId, DateTime? date)
         {
             var meso = await FindById(mesoId);
-            var exercises = meso.Exercises?.Where(x => x.Date.Value.Date == (date?.Date ?? meso.BeginDate));
+            var exercises = meso.Exercises?.Where(x => x.Date.Date == (date?.Date ?? meso.BeginDate));
             var cardios = meso.Cardios?.Where(x => x.Date.Value.Date == (date?.Date ?? meso.BeginDate));
             return (meso, exercises, cardios);
         }
-
-        public async Task CloneExercisesAndCardioToDate(int mesoId, DateTime dayFrom, DateTime dayTo)
-        {
-            var meso = await FindById(mesoId);
-            var cardioAndExercises = await GetExercisesAndCardio(mesoId, dayFrom);
-            cardioAndExercises.Cardios.ToList().ForEach(x =>
-            {
-                var cardio = new Cardio
-                {
-                    Date = dayTo,
-                    MesoId = mesoId,
-                    Name = x.Name,
-                    TimeInMinutes = x.TimeInMinutes
-                };
-
-                meso.AddCardio(cardio);
-            });
-
-            cardioAndExercises.Exercises.ToList().ForEach(x =>
-            {
-                var exercise = new Exercise
-                {
-                    Date = dayTo,
-                    MesoId = x.MesoId,
-                    Name = x.Name,
-                    Reps = x.Reps,
-                    Sets = x.Sets,
-                    Weight = x.Weight,
-
-                };
-                meso.AddExercise(exercise);
-            });
-
-            await Update(meso);
-        }
-
-
     }
 
 }
