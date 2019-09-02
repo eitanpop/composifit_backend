@@ -60,7 +60,7 @@ namespace Composifit.Controllers
             return await _service.Create(new Meso { BeginDate = model.BeginDate, EndDate = model.EndDate, Name = model.Name });
         }
 
-        
+
         [HttpPost]
         [Route("/[controller]/exercise")]
         public async Task<ActionResult> Post(ExerciseCreateModel model)
@@ -80,10 +80,18 @@ namespace Composifit.Controllers
         {
             Console.WriteLine(JsonConvert.SerializeObject(model));
             var meso = await _service.FindById(model.MesoId);
-            var cardio = model.Id > 0 ? meso.Cardios.First(x => x.Id == model.Id) : new Cardio();          
+            var cardio = model.Id > 0 ? meso.Cardios.First(x => x.Id == model.Id) : new Cardio();
             meso.AddCardio(_mapper.Map(model, cardio));
             await _service.Update(meso);
             return Ok(meso.Cardios?.Count());
+        }
+
+        [HttpPost]
+        [Route("/[controller]/{mesoId}/clone/{fromDate}/{toDate}")]
+        public async Task<ActionResult> Post(int mesoId, DateTime fromDate, DateTime toDate)
+        {
+            await _service.CloneExerciseAndCardioFromDay(mesoId, fromDate, toDate);
+            return Ok();
         }
 
         private MesoSimpleModel GetSimpleModelFromMeso(Meso meso)

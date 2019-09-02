@@ -39,6 +39,7 @@ namespace Composifit
             services.AddTransient<IMesoService, MesoService>();
             services.AddTransient<ITrackService, TrackService>();
             services.AddTransient<IExerciseService, ExerciseService>();
+            services.AddTransient<ICardioService, CardioService>();
 
         }
 

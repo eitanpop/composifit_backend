@@ -6,13 +6,11 @@ using System.Text;
 namespace Composifit.Core.Entities
 {
     [Table("Cardio")]
-    public class Cardio : EntityWithName
+    public class Cardio : MesoChild
     {
         public decimal TimeInMinutes { get; set; }
 
         public int IntensityId { get; set; }       
-
-        public DateTime? Date { get; set; }
 
         public int MesoId { get; set; }
     }

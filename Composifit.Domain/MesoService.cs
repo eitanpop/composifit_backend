@@ -56,8 +56,47 @@ namespace Composifit.Domain
         {
             var meso = await FindById(mesoId);
             var exercises = meso.Exercises?.Where(x => x.Date.Date == (date?.Date ?? meso.BeginDate));
-            var cardios = meso.Cardios?.Where(x => x.Date.Value.Date == (date?.Date ?? meso.BeginDate));
+            var cardios = meso.Cardios?.Where(x => x.Date.Date == (date?.Date ?? meso.BeginDate));
             return (meso, exercises, cardios);
+        }
+
+        public async Task CloneExerciseAndCardioFromDay(int mesoId, DateTime fromDate, DateTime toDate)
+        {
+            var meso = await FindById(mesoId);
+            var exercises = meso.Exercises;
+            var cardios = meso.Cardios;
+
+
+            /* exercises.Where(x => x.Date == fromDate).ToList().ForEach(entity =>
+                  {
+                      _context.Entry(entity).State = EntityState.Detached;
+                      entity.Id = 0;
+                      entity.Date = toDate;
+
+                      meso.Exercises.Add(entity);
+                  });*/
+
+            CloneFromDay(exercises, fromDate, toDate);
+            CloneFromDay(cardios, fromDate, toDate);
+            await Update(meso);
+
+
+
+            //   await Update(meso);
+        }
+
+        private void CloneFromDay<T>(ICollection<T> entities, DateTime fromDate, DateTime toDate) where T : MesoChild, new()
+        {
+            var entitiesFromDate = entities.Where(x => x.Date == fromDate).ToList();
+            entitiesFromDate.ForEach(entity =>
+                {
+                    var newEntity = new T();
+                    var values = _context.Entry(entity).CurrentValues.Clone();
+                    _context.Entry(newEntity).CurrentValues.SetValues(values);
+                    newEntity.Id = 0;
+                    newEntity.Date = toDate;
+                    entities.Add(newEntity);
+                });
         }
     }
 

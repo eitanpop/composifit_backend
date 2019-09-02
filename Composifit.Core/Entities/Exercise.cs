@@ -6,15 +6,13 @@ using System.Text;
 
 namespace Composifit.Core.Entities { 
 
-    public class Exercise : EntityWithName
+    public class Exercise : MesoChild
     {
         public Exercise()
         {
             Sets = new HashSet<Set>();
         }       
         public int MuscleGroupId {get;set;}
-
-        public DateTime Date { get; set; }
 
         public int MesoId { get; set; }
 

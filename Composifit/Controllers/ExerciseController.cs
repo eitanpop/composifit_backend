@@ -32,6 +32,14 @@ namespace Composifit.Controllers
             return Ok(set.Id);           
         }
 
+        [HttpPost]
+        [Route("/[controller]/{id}/delete")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            await _service.Delete(id);
+            return Ok();
+        }
+
         [Route("/[controller]/set/{id}/delete")]
         [HttpPost]
         public async Task<ActionResult> Post(int id)

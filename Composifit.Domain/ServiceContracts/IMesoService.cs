@@ -14,5 +14,6 @@ namespace Composifit.Domain.ServiceContracts
         Task<Meso> FindById(int id);
         Task<IEnumerable<Meso>> FindAll();
         Task Update(Meso meso);
+        Task CloneExerciseAndCardioFromDay(int mesoId, DateTime fromDate, DateTime toDate);
     }
 }
