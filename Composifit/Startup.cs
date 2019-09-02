@@ -38,6 +38,7 @@ namespace Composifit
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IMesoService, MesoService>();
             services.AddTransient<ITrackService, TrackService>();
+            services.AddTransient<IExerciseService, ExerciseService>();
 
         }
 

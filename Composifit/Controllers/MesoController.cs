@@ -25,6 +25,34 @@ namespace Composifit.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
+        [Route("/[controller]/{id:int}")]
+        public async Task<ActionResult<dynamic>> Get(int id)
+        {
+            var entity = await _service.FindById(id);
+            if (entity == null)
+                return new NotFoundResult();
+            return Ok(entity);
+        }
+
+        [HttpGet]
+        [Route("/[controller]/{id:int}/date/{date:DateTime?}")]
+        public async Task<ActionResult<DayGetModel>> Get(int id, DateTime? date = null)
+        {
+            var meso = await _service.GetExercisesAndCardio(id, date);
+            return new DayGetModel { Exercises = meso.Exercises, Cardios = meso.Cardios, Meso = GetSimpleModelFromMeso(meso.Meso) };
+        }
+
+        [HttpGet]
+        [Route("/mesos")]
+        public async Task<ActionResult<IEnumerable<dynamic>>> Get()
+        {
+            var entities = await _service.FindAll();
+            if (entities == null)
+                return new NotFoundResult();
+            return Ok(entities);
+        }
+
         [HttpPost]
         public async Task<ActionResult<int>> Post(MesoCreateModel model)
         {
@@ -56,37 +84,6 @@ namespace Composifit.Controllers
             meso.AddCardio(_mapper.Map(model, cardio));
             await _service.Update(meso);
             return Ok(meso.Cardios?.Count());
-        }
-
-
-        [HttpGet]
-        [Route("/[controller]/{id:int}")]
-        public async Task<ActionResult<dynamic>> Get(int id)
-        {
-            var entity = await _service.FindById(id);
-            if (entity == null)
-                return new NotFoundResult();
-            return Ok(entity);
-        }
-
-        [HttpGet]
-        [Route("/mesos")]
-        public async Task<ActionResult<IEnumerable<dynamic>>> GetAllMesos()
-        {
-            var entities = await _service.FindAll();
-            if (entities == null)
-                return new NotFoundResult();
-            return  Ok(entities);
-        }
-
-
-
-        [HttpGet]
-        [Route("/[controller]/{id:int}/date/{date:DateTime?}")]
-        public async Task<ActionResult<DayGetModel>> Get(int id, DateTime? date = null)
-        {
-            var meso = await _service.GetExercisesAndCardio(id, date);
-            return new DayGetModel { Exercises = meso.Exercises, Cardios = meso.Cardios, Meso = GetSimpleModelFromMeso(meso.Meso) };
         }
 
         private MesoSimpleModel GetSimpleModelFromMeso(Meso meso)

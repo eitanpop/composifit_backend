@@ -19,6 +19,11 @@ namespace Composifit.Core.Entities {
         public int MesoId { get; set; }
 
         public ICollection<Set> Sets { get; set; }
+
+        public void AddSet(Set set)
+        {
+            Sets.Add(set);
+        }
     }
 
     public enum MuscleGroup

@@ -19,6 +19,7 @@ namespace Composifit
             CreateMap<Exercise, ExerciseDomainModel>();
             CreateMap<UserSet, UserSetDomainModel>();
             CreateMap<Meso, MesoGetModel>();
+            CreateMap<SetCreateModel, Set>();
         }
     }
 }

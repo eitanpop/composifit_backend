@@ -13,6 +13,6 @@ namespace Composifit.Domain.ServiceContracts
         Task<int> Create(Meso meso);
         Task<Meso> FindById(int id);
         Task<IEnumerable<Meso>> FindAll();
-        Task Update(Meso meso);       
+        Task Update(Meso meso);
     }
 }
