@@ -11,6 +11,7 @@ namespace Composifit.Domain.ServiceContracts
         Task<Exercise> FindById(int id);
         Task<int> Update(Exercise exercise);
         Task Delete(int exerciseId);
-        Task DeleteSet(int setId);
+        Task DeleteSet(int execiseId, int setId);
+        Task<dynamic> GetMuscleGroupBreakdown(int mesoId);
     }
 }

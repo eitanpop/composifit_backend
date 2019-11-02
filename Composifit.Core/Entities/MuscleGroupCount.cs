@@ -1,15 +1,14 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Composifit.Core.Entities
 {
-    public class Entity
+    public class MuscleGroupCount
     {
         [Key]
-        public int Id { get; set; }
+        public int MuscleGroupId { get; set; }
+        public int Count { get; set; }
     }
 }

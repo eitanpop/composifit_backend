@@ -17,6 +17,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Composifit.Domain\Composifit.Domain.csproj" />
     <ProjectReference Include="..\Composifit.Core\Composifit.Core.csproj" />
-    <ProjectReference Include="..\Conposifit.Infrastructure\Composifit.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit", "Composifit\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit.Core", "Composifit.Core\Composifit.Core.csproj", "{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit.Infrastructure", "Conposifit.Infrastructure\Composifit.Infrastructure.csproj", "{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composifit.Domain", "Composifit.Domain\Composifit.Domain.csproj", "{89885060-84AA-4DD0-BA3E-3C62F0BE768B}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB43D7D8-78B5-493E-A2F6-23F28748B5C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93F6F676-9A17-4947-8AD8-6CB5131CCAFA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89885060-84AA-4DD0-BA3E-3C62F0BE768B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89885060-84AA-4DD0-BA3E-3C62F0BE768B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89885060-84AA-4DD0-BA3E-3C62F0BE768B}.Release|Any CPU.ActiveCfg = Release|Any CPU

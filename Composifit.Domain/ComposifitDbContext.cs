@@ -19,8 +19,10 @@ namespace Composifit.Domain
 
         public DbSet<UserSet> UserSets { get; set; }
 
+        public DbSet<MuscleGroupCount> MuscleGroupCount { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {         
            
         }
     }

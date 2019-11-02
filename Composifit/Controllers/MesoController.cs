@@ -3,6 +3,7 @@ using Composifit.Core;
 using Composifit.Core.Entities;
 using Composifit.Domain.ServiceContracts;
 using Composifit.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -15,7 +16,8 @@ namespace Composifit.Controllers
 {
     [Route("/[controller]")]
     [ApiController]
-    public class MesoController : Controller
+    [Authorize]
+    public class MesoController : BaseController
     {
         private IMesoService _service;
         private IMapper _mapper;
@@ -25,17 +27,17 @@ namespace Composifit.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet]       
         [Route("/[controller]/{id:int}")]
         public async Task<ActionResult<dynamic>> Get(int id)
         {
             var entity = await _service.FindById(id);
             if (entity == null)
-                return new NotFoundResult();
+                return new NotFoundResult();         
             return Ok(entity);
         }
 
-        [HttpGet]
+        [HttpGet]       
         [Route("/[controller]/{id:int}/date/{date:DateTime?}")]
         public async Task<ActionResult<DayGetModel>> Get(int id, DateTime? date = null)
         {

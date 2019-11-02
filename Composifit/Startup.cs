@@ -1,22 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Composifit.Core;
+﻿using Composifit.Core;
 using Composifit.Domain;
-using Composifit.Domain.Repositories;
-using Composifit.Domain.RepositoryContracts;
 using Composifit.Domain.ServiceContracts;
-using Composifit.Infrastructure.Repositories;
-using Composifit.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Composifit.Extensions;
 
 namespace Composifit
 {
@@ -32,10 +25,20 @@ namespace Composifit
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("Bearer")
+            .AddJwtBearer(options =>
+            {
+                options.Audience = "6fqkgms51esvhk8oq56iqneg79";
+                options.Authority = "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_qaSHy4NW0";
+            });
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddAutoMapper(typeof(AutoMaps));
-            services.AddDbContext<ComposifitDbContext>(options => 
+            services.AddDbContext<ComposifitDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IIdentityProvider>(x => new IdentityProvider(x.GetService<IHttpContextAccessor>().HttpContext.User.GetUsername()));
             services.AddTransient<IMesoService, MesoService>();
             services.AddTransient<ITrackService, TrackService>();
             services.AddTransient<IExerciseService, ExerciseService>();
@@ -56,6 +59,7 @@ namespace Composifit
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

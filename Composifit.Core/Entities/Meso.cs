@@ -7,7 +7,7 @@ namespace Composifit.Core.Entities
 
 {
     [Table("Mesocycles")]
-    public class Meso : EntityWithName
+    public class Meso : EntityWithName, IUserOwnedEntity
     {
         public Meso()
         {
@@ -26,6 +26,8 @@ namespace Composifit.Core.Entities
         }
 
         public ICollection<Cardio> Cardios { get; set; }
+        public string UserId { get; set; }
+
         public void AddCardio(Cardio cardio)
         {
             if (cardio != null && !Cardios.Any(x => x.Id == cardio.Id))

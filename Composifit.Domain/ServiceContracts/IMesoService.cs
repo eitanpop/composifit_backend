@@ -2,6 +2,7 @@
 using Composifit.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,5 +16,6 @@ namespace Composifit.Domain.ServiceContracts
         Task<IEnumerable<Meso>> FindAll();
         Task Update(Meso meso);
         Task CloneExerciseAndCardioFromDay(int mesoId, DateTime fromDate, DateTime toDate);
+        IQueryable<Meso> GetUserMesocycles();
     }
 }

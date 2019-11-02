@@ -27,6 +27,18 @@ namespace Composifit.Core.Entities {
     public enum MuscleGroup
     {
         Chest = 1,
-        Neck = 2
+        Neck = 2,
+        UpperBack= 3,
+        LowerBack=4,
+        Traps = 5,
+        Lats = 6,
+        Biceps = 7,
+        Triceps = 8,
+        Forearms = 9,
+        Abs = 10,
+        Glutes = 11,
+        Quads = 12,
+        Hamstring = 13,
+        Calves = 14
     }
 }

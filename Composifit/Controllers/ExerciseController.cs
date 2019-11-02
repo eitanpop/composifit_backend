@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Composifit.Controllers
 {
     [ApiController]
-    public class ExerciseController : Controller
+    public class ExerciseController : BaseController
     {
         private readonly IExerciseService _service;
         private readonly IMapper _mapper;
@@ -32,20 +32,27 @@ namespace Composifit.Controllers
             return Ok(set.Id);           
         }
 
-        [HttpPost]
         [Route("/[controller]/{id}/delete")]
+        [HttpDelete]       
         public async Task<ActionResult> Delete(int id)
         {
             await _service.Delete(id);
             return Ok();
         }
 
-        [Route("/[controller]/set/{id}/delete")]
-        [HttpPost]
-        public async Task<ActionResult> Post(int id)
+        [Route("/[controller]/{exerciseId}/set/{setId}/delete")]
+        [HttpDelete]
+        public async Task<ActionResult> DeleteSet(int exerciseId, int setId)
         {           
-            await _service.DeleteSet(id);
+            await _service.DeleteSet(exerciseId, setId);
             return Ok();
+        }
+
+        [Route("/meso/{mesoId}/MuscleGroups")]
+        [HttpGet]
+        public async Task<ActionResult<dynamic>> Get(int mesoId)
+        {
+           return await _service.GetMuscleGroupBreakdown(mesoId);
         }
     }
 }

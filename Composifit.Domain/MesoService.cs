@@ -14,12 +14,15 @@ namespace Composifit.Domain
     public class MesoService : IMesoService
     {
         private ComposifitDbContext _context;
-        public MesoService(ComposifitDbContext context)
+        private IIdentityProvider _identity;
+        public MesoService(ComposifitDbContext context, IIdentityProvider identityProvider)
         {
             _context = context;
+            _identity = identityProvider;
         }
         public async Task<int> Create(Meso meso)
         {
+            meso.UserId = _identity.GetUserId();
             _context.Add(meso);
             await _context.SaveChangesAsync();
             return meso.Id;
@@ -27,7 +30,8 @@ namespace Composifit.Domain
 
         public async Task<IEnumerable<Meso>> FindAll()
         {
-            return await _context.Mesocycles
+            return await GetUserMesocycles()
+                .Where(x => x.UserId == _identity.GetUserId())
                  .Include(x => x.Exercises)
                  .ThenInclude(x => x.Sets)
                  .ThenInclude(x => x.UserSet)
@@ -37,7 +41,8 @@ namespace Composifit.Domain
 
         public async Task<Meso> FindById(int id)
         {
-            return await _context.Mesocycles
+            return await GetUserMesocycles()
+                 .Where(x => x.UserId == _identity.GetUserId())
                  .Where(meso => meso.Id == id)
                  .Include(x => x.Exercises)
                  .ThenInclude(x => x.Sets)
@@ -54,7 +59,13 @@ namespace Composifit.Domain
 
         public async Task<(Meso Meso, IEnumerable<Exercise> Exercises, IEnumerable<Cardio> Cardios)> GetExercisesAndCardio(int mesoId, DateTime? date)
         {
-            var meso = await FindById(mesoId);
+            var meso = await GetUserMesocycles().Where(x => x.Id == mesoId)
+                .Include(x => x.Exercises)
+                 .ThenInclude(x => x.Sets)
+                 .Include(x => x.Cardios)
+                 .FirstOrDefaultAsync();
+            if (meso == null)
+                throw new NullReferenceException("Unable to find Mesocycle");
             var exercises = meso.Exercises?.Where(x => x.Date.Date == (date?.Date ?? meso.BeginDate));
             var cardios = meso.Cardios?.Where(x => x.Date.Date == (date?.Date ?? meso.BeginDate));
             return (meso, exercises, cardios);
@@ -62,42 +73,36 @@ namespace Composifit.Domain
 
         public async Task CloneExerciseAndCardioFromDay(int mesoId, DateTime fromDate, DateTime toDate)
         {
-            var meso = await FindById(mesoId);
-            var exercises = meso.Exercises;
-            var cardios = meso.Cardios;
+            var meso = await GetUserMesocycles().Where(x => x.Id == mesoId)
+                .Include(x => x.Exercises)
+                 .ThenInclude(x => x.Sets)
+                 .ThenInclude(x => x.UserSet)
+                .Include(x => x.Cardios)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+            var exercises = meso.Exercises.Where(x => x.Date == fromDate);
+            var cardios = meso.Cardios.Where(x => x.Date == fromDate);
+            foreach (var exercise in exercises)
+            {
+                exercise.Id = 0;
+                exercise.Date = toDate;
+                foreach (var set in exercise.Sets)
+                    set.Id = 0;
+                _context.Exercises.Add(exercise);
+            }
 
+            foreach (var cardio in cardios)
+            {
+                cardio.Id = 0;
+                cardio.Date = toDate;
+                _context.Cardio.Add(cardio);
+            }
 
-            /* exercises.Where(x => x.Date == fromDate).ToList().ForEach(entity =>
-                  {
-                      _context.Entry(entity).State = EntityState.Detached;
-                      entity.Id = 0;
-                      entity.Date = toDate;
-
-                      meso.Exercises.Add(entity);
-                  });*/
-
-            CloneFromDay(exercises, fromDate, toDate);
-            CloneFromDay(cardios, fromDate, toDate);
-            await Update(meso);
-
-
-
-            //   await Update(meso);
+            await _context.SaveChangesAsync();
         }
 
-        private void CloneFromDay<T>(ICollection<T> entities, DateTime fromDate, DateTime toDate) where T : MesoChild, new()
-        {
-            var entitiesFromDate = entities.Where(x => x.Date == fromDate).ToList();
-            entitiesFromDate.ForEach(entity =>
-                {
-                    var newEntity = new T();
-                    var values = _context.Entry(entity).CurrentValues.Clone();
-                    _context.Entry(newEntity).CurrentValues.SetValues(values);
-                    newEntity.Id = 0;
-                    newEntity.Date = toDate;
-                    entities.Add(newEntity);
-                });
-        }
+        public IQueryable<Meso> GetUserMesocycles() =>
+         _context.Mesocycles.Where(x => x.UserId == _identity.GetUserId());
+
     }
-
 }
